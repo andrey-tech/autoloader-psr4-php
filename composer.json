@@ -1,7 +1,7 @@
 {
     "name": "andrey-tech/autoloader-psr4-php",
     "description": "Простой автозагрузчик классов, реализующий стандарт PSR-4",
-    "keywords": [ "autoload", "psr4" ],
+    "keywords": [ "autoload", "autoloader", "autoloading", "psr4" ],
     "homepage": "https://github.com/andrey-tech/autoloader-psr4-php",
     "minimum-stability": "stable",
     "license": "MIT",
