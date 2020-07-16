@@ -7,7 +7,7 @@
  * @see https://github.com/andrey-tech/autoloader-psr4-php
  * @license   MIT
  *
- * @version 1.4.1
+ * @version 1.4.2
  *
  * v1.0.0 (01.05.2015) Начальный релиз
  * v1.2.1 (26.06.2019) Исправления для пространства имен \App
@@ -16,6 +16,7 @@
  * v1.3.0 (28.06.2020) Добавлено свойство setIncludePathMode
  * v1.4.0 (29.06.2020) Добавлена возможность отключения модификации include path
  * v1.4.1 (30.06.2020) Рефракторинг
+ * v1.4.2 (16.07.2020) Исправлено сообщение об ошибке
  *
  */
 
@@ -133,7 +134,8 @@ class Autoloader
         $fileName = $className . '.php';
         $filePath = stream_resolve_include_path($fileName);
         if ($filePath === false) {
-            trigger_error("Can't find file to autoload '{$fileName}'", E_USER_ERROR);
+            $includePath = get_include_path();
+            trigger_error("Can't find file to autoload '{$fileName}' in include path '{$includePath}'", E_USER_ERROR);
         }
 
         require_once($filePath);
