@@ -7,7 +7,7 @@
  * @see https://github.com/andrey-tech/autoloader-psr4-php
  * @license   MIT
  *
- * @version 1.4.2
+ * @version 1.4.3
  *
  * v1.0.0 (01.05.2015) Начальный релиз
  * v1.2.1 (26.06.2019) Исправления для пространства имен \App
@@ -17,6 +17,7 @@
  * v1.4.0 (29.06.2020) Добавлена возможность отключения модификации include path
  * v1.4.1 (30.06.2020) Рефракторинг
  * v1.4.2 (16.07.2020) Исправлено сообщение об ошибке
+ * v1.4.3 (19.07.2020) Исправлено сообщение об ошибке в методе setInculdePath
  *
  */
 
@@ -106,7 +107,7 @@ class Autoloader
             case 1:
                 break;
             default:
-                trigger_error("Unknown mode '{$mode}' for setIncludePath()", E_USER_ERROR);
+                trigger_error("Unknown mode for setIncludePath()", E_USER_ERROR);
         }
 
         if (set_include_path(implode(PATH_SEPARATOR, $newIncludePath)) === false) {
